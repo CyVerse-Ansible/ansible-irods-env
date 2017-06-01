@@ -22,7 +22,7 @@ Variable                               | Default                                
 `irods_env_sys_user_name`              | `ansible_env.USER`                               |                                                 | the system user that will be using the iRODS environment file
 `irods_env_sys_group_name`             | `irods_env_sys_user_name`                        |                                                 | the primary group of the system user that will be using the iRODS environment file
 `irods_env_authentication_file`        |                                                  |                                                 | fully qualified path to a file holding the credentials of an authenticated iRODS user
-`irods_env_authentication_scheme`      |                                                  | gsi,krb, native, pam                            | user's authentication method
+`irods_env_authentication_scheme`      |                                                  | gsi, krb, native, pam                           | user's authentication method
 `irods_env_client_server_negotiation`  |                                                  | none, request_server_negotiation                | whether or not advanced negotiation is desired
 `irods_env_client_server_policy`       |                                                  | CS_NEG_DONT_CARE, CS_NEG_REFUSE, CS_NEG_REQUIRE | which SSL policy to use
 `irods_env_control_plane_port`         |                                                  |                                                 | the port on which the control plane operates
