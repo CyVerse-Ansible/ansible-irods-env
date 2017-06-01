@@ -3,7 +3,7 @@ language: python
 python: "2.7"
 
 # Use the new container infrastructure
-sudo: false
+sudo: required
 
 # Install ansible
 addons:
@@ -20,6 +20,16 @@ install:
 
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
+
+before_script:
+  # Create irods user
+  - sudo useradd --system --home-dir /var/lib/irods irods
+
+  # Create home directory for irods user
+  - sudo mkdir --parents /var/lib/irods
+
+  # Give irods ownership of its home directory
+  - sudo chown irods:irods /var/lib/irods
 
 script:
   # Basic role syntax check
