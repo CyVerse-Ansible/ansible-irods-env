@@ -1,0 +1,32 @@
+---
+- name: test that environment file is correctly deposited
+  hosts: localhost
+  pre_tasks:
+    - name: ensure .irods directory does not exist
+      file:
+        path: "{{ ansible_env.HOME }}/.irods"
+        state: absent
+
+  roles:
+    - ../../ansible-irods-env
+
+  post_tasks:
+    - name: retrieve environment file info
+      stat:
+        path: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
+      register: response
+
+    - name: check if file exists
+      when: not response.stat.exists
+      fail:
+        msg: file not put in correct location
+
+    - name: verify correct owner
+      when: response.stat.pw_name != ansible_env.USER
+      fail:
+        msg: file has incorrect owner
+
+    - name: verify correct group
+      when: response.stat.gr_name != ansible_env.USER
+      fail:
+        msg: file has incorrect group

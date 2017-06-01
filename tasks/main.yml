@@ -1,2 +1,14 @@
 ---
-# tasks file for ansible-irods-env
+- include: validate.yml
+
+- name: ensure path to environment file exists
+  file:
+    path: "{{ irods_env_file | dirname }}"
+    state: directory
+
+- name: generate irods_environment.json
+  template:
+    src: irods_environment.json.j2
+    dest: "{{ irods_env_file }}"
+    owner: "{{ irods_env_sys_user_name }}"
+    group: "{{ irods_env_sys_group_name }}"
