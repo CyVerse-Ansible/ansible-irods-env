@@ -58,6 +58,7 @@ If `irods_env_for_server` is set to `true`, some of the variables have different
 
 Variable                               | Server Default
 -------------------------------------- | --------------
+`irods_env_file`                       | /var/lib/irods/.irods/irods_environment.json
 `irods_env_sys_user_name`              | irods
 `irods_env_client_server_negotiation`  | request_server_negotiation
 `irods_env_client_server_policy`       | CS_NEG_DONT_CARE

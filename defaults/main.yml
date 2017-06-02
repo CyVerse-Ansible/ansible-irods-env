@@ -1,7 +1,7 @@
 ---
 irods_env_for_server: false
 
-irods_env_file: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
+irods_env_file: "{{ '/var/lib/irods' if irods_env_for_server else ansible_env.HOME }}/.irods/irods_environment.json"
 irods_env_sys_user_name: "{{ 'irods' if irods_env_for_server else ansible_env.USER }}"
 irods_env_sys_group_name: "{{ irods_env_sys_user_name }}"
 
