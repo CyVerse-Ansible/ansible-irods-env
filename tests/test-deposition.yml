@@ -34,6 +34,7 @@
 
 - name: test that default server environment file is correctly deposited
   hosts: localhost
+  become: true
   pre_tasks:
     - name: ensure .irods directory does not exist
       file:
