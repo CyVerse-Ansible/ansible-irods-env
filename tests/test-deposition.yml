@@ -11,25 +11,14 @@
     - role: ../../ansible-irods-env
 
   post_tasks:
-    - name: retrieve environment file info
+    - name: check deposition
       stat:
         path: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
       register: response
-
-    - name: check if file exists
-      when: not response.stat.exists
-      fail:
-        msg: file not put in correct location
-
-    - name: verify correct owner
-      when: response.stat.pw_name != ansible_env.USER
-      fail:
-        msg: file has incorrect owner
-
-    - name: verify correct group
-      when: response.stat.gr_name != ansible_env.USER
-      fail:
-        msg: file has incorrect group
+      failed_when: >
+        not response.stat.exists or
+        response.stat.pw_name != ansible_env.USER or
+        response.stat.gr_name != ansible_env.USER
 
 
 - name: test that default server environment file is correctly deposited
@@ -46,22 +35,11 @@
       irods_env_for_server: true
 
   post_tasks:
-    - name: retrieve environment file info
+    - name: check deposition
       stat:
         path: "/var/lib/irods/.irods/irods_environment.json"
       register: response
-
-    - name: check if file exists
-      when: not response.stat.exists
-      fail:
-        msg: file not put in correct location
-
-    - name: verify correct owner
-      when: response.stat.pw_name != irods
-      fail:
-        msg: file has incorrect owner
-
-    - name: verify correct group
-      when: response.stat.gr_name != irods
-      fail:
-        msg: file has incorrect group
+      failed_when: >
+        not response.stat.exists or
+        response.stat.pw_name != 'irods' or
+        response.stat.gr_name != 'irods'
