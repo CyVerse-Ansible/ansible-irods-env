@@ -57,7 +57,7 @@
         group: "{{ ansible_env.USER }}"
 
 
-- name: test custom owner
+- name: test custom sys user
   hosts: localhost
   become: true
   pre_tasks:
@@ -74,4 +74,24 @@
       vars:
         env_file: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
         owner: irods
+        group: irods
+
+
+- name: test custom sys group
+  hosts: localhost
+  become: true
+  pre_tasks:
+    - include: "tasks/remove-entry.yml" 
+      vars:
+        entry: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
+
+  roles:
+    - role: ../../ansible-irods-env
+      irods_env_sys_group_name: irods
+
+  post_tasks:
+    - include: "tasks/check-deposition.yml"
+      vars:
+        env_file: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
+        owner: "{{ ansible_env.USER }}"
         group: irods
