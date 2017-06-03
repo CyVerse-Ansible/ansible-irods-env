@@ -4,6 +4,8 @@ irods-env
 
 This role creates an irods_environment.json file. It can create both the client for used by iCommands, iRODS FUSE client, etc., as well as the server form used by the iRODS servers.
 
+It was originally created to generate environment files for iRODS 4.1.10, but it will likely work for any iRODS 4.1.x version.
+
 
 Requirements
 ------------
