@@ -29,6 +29,6 @@ galaxy_info:
   galaxy_tags:
     - cyverse
     - irods
-    - irods_environment
+    - environment
 
 dependencies: []
