@@ -1,0 +1,9 @@
+---
+- name: check deposition
+  stat:
+    path: "{{ env_file }}"
+  register: response
+  failed_when: >
+    not response.stat.exists or
+    response.stat.pw_name != owner or
+    response.stat.gr_name != group

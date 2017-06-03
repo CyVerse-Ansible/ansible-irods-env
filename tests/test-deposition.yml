@@ -2,44 +2,56 @@
 - name: test that default environment file is correctly deposited
   hosts: localhost
   pre_tasks:
-    - name: ensure .irods directory does not exist
-      file:
-        path: "{{ ansible_env.HOME }}/.irods"
-        state: absent
+    - include: "tasks/remove-entry.yml" 
+      vars:
+        entry: "{{ ansible_env.HOME }}/.irods"
 
   roles:
     - role: ../../ansible-irods-env
 
   post_tasks:
-    - name: check deposition
-      stat:
-        path: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
-      register: response
-      failed_when: >
-        not response.stat.exists or
-        response.stat.pw_name != ansible_env.USER or
-        response.stat.gr_name != ansible_env.USER
+    - include: "tasks/check-deposition.yml"
+      vars:
+        env_file: "{{ ansible_env.HOME }}/.irods/irods_environment.json"
+        owner: "{{ ansible_env.USER }}"
+        group: "{{ ansible_env.USER }}"
 
 
 - name: test that default server environment file is correctly deposited
   hosts: localhost
   become: true
   pre_tasks:
-    - name: ensure .irods directory does not exist
-      file:
-        path: "/var/lib/irods/.irods"
-        state: absent
+    - include: "tasks/remove-entry.yml" 
+      vars:
+        entry: /var/lib/irods/.irods/irods_environment.json
 
   roles:
     - role: ../../ansible-irods-env
       irods_env_for_server: true
 
   post_tasks:
-    - name: check deposition
-      stat:
-        path: "/var/lib/irods/.irods/irods_environment.json"
-      register: response
-      failed_when: >
-        not response.stat.exists or
-        response.stat.pw_name != 'irods' or
-        response.stat.gr_name != 'irods'
+    - include: "tasks/check-deposition.yml"
+      vars:
+        env_file: /var/lib/irods/.irods/irods_environment.json
+        owner: irods
+        group: irods
+
+
+- name: test custom file name
+  hosts: localhost
+  vars:
+    irods_env_file: "{{ ansible_env.HOME }}/env.json"
+  pre_tasks:
+    - include: "tasks/remove-entry.yml" 
+      vars:
+        entry: "{{ irods_env_file }}"
+
+  roles:
+    - role: ../../ansible-irods-env
+
+  post_tasks:
+    - include: "tasks/check-deposition.yml"
+      vars:
+        env_file: "{{ irods_env_file }}"
+        owner: "{{ ansible_env.USER }}"
+        group: "{{ ansible_env.USER }}"

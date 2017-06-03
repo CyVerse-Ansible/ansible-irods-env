@@ -1,0 +1,5 @@
+---
+- name: ensure {{ entry }} doesn't exist
+  file:
+    path: "{{ entry }}"
+    state: absent
