@@ -6,7 +6,7 @@
     path: "{{ irods_env_file | dirname }}"
     state: directory
 
-- name: generate irods_environment.json
+- name: generate irods environment file
   template:
     src: irods_environment.json.j2
     dest: "{{ irods_env_file }}"
