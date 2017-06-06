@@ -113,7 +113,7 @@ Here's an example of creating irods_environment.json for an iRODS server.
 License
 -------
 
-See license.md
+See [license](/license.md)
 
 
 Author Information
