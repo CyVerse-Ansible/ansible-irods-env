@@ -13,7 +13,7 @@ irods_env_encryption_algorithm: algorithm
 irods_env_encryption_key_size: 4
 irods_env_encryption_num_hash_rounds: 8
 irods_env_encryption_salt_size: 16
-irods_env_match_host_policy: strict
+irods_env_match_hash_policy: strict
 irods_env_relative_home: home
 irods_env_relative_cwd: cwd
 irods_env_authentication_file: authentication_file

@@ -58,8 +58,8 @@
 {% if irods_env_log_level or irods_env_log_level == 0 %}
   "irods_log_level": {{ irods_env_log_level }},
 {% endif %}
-{% if irods_env_match_host_policy %}
-  "irods_match_host_policy": "{{ irods_env_match_host_policy }}",
+{% if irods_env_match_hash_policy %}
+  "irods_match_hash_policy": "{{ irods_env_match_hash_policy }}",
 {% endif %}
 {% if irods_env_plugins_home %}
   "irods_plugins_home": "{{ irods_env_plugins_home }}",

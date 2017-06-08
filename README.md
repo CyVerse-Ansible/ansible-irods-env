@@ -41,7 +41,7 @@ Variable                               | Default                                
 `irods_env_gsi_server_dn`              |                                                  |                                                 | the distinguished name of the GSI server
 `irods_env_host`                       | `inventory_hostname`                             |                                                 | a fully qualified domain name for the iRODS server to connect to
 `irods_env_log_level`                  |                                                  |                                                 | desired verbosity of logging
-`irods_env_match_host_policy`          |                                                  | compatible, strict                              | whether or not to require given hash scheme
+`irods_env_match_hash_policy`          |                                                  | compatible, strict                              | whether or not to require given hash scheme
 `irods_env_plugins_home`               |                                                  |                                                 | directory to use for client-side plugins
 `irods_env_port`                       | 1247                                             |                                                 | the port for the given iRODS zone
 `irods_env_relative_cwd`               |                                                  |                                                 | the initial working collection relative to the /`irods_env_zone_name`, don't prefix with '/'
@@ -73,7 +73,7 @@ Variable                               | Server Default
 `irods_env_encryption_key_size`        | 32
 `irods_env_encryption_num_hash_rounds` | 16
 `irods_env_encryption_salt_size`       | 8
-`irods_env_match_host_policy`          | compatible
+`irods_env_match_hash_policy`          | compatible
 `irods_env_relative_cwd`               | `irods_env_relative_home`
 `irods_env_relative_home`              | home/`irods_env_user_name`
 `irods_env_user_name`                  | rods
@@ -108,7 +108,7 @@ Here's an example of creating irods_environment.json for an iRODS server.
           irods_env_control_plane_key: "{{ irods_control_plane_key }}"
           irods_env_default_hash_scheme: MD5
           irods_env_default_resource: "{{ irods_default_resource }}"
-    
+
 
 License
 -------

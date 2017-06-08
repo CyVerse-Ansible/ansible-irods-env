@@ -31,7 +31,7 @@
           - irods_environment.irods_gsi_server_dn is not defined
           - irods_environment.irods_home is not defined
           - irods_environment.irods_log_level is not defined
-          - irods_environment.irods_match_host_policy is not defined
+          - irods_environment.irods_match_hash_policy is not defined
           - irods_environment.irods_plugins_home is not defined
           - irods_environment.irods_ssl_ca_certificate_file is not defined
           - irods_environment.irods_ssl_ca_certificate_path is not defined
@@ -69,7 +69,7 @@
           - irods_environment.irods_encryption_num_hash_rounds == 16
           - irods_environment.irods_encryption_salt_size == 8
           - irods_environment.irods_home == '/tempZone/home/rods'
-          - irods_environment.irods_match_host_policy == 'compatible'
+          - irods_environment.irods_match_hash_policy == 'compatible'
           - irods_environment.irods_authentication_file is not defined
           - irods_environment.irods_authentication_scheme is not defined
           - irods_environment.irods_debug is not defined
@@ -174,7 +174,7 @@
           - irods_environment.irods_encryption_num_hash_rounds == 8
           - irods_environment.irods_encryption_salt_size == 16
           - irods_environment.irods_home == '/zone/home'
-          - irods_environment.irods_match_host_policy == 'strict'
+          - irods_environment.irods_match_hash_policy == 'strict'
           - irods_environment.irods_authentication_file == 'authentication_file'
           - irods_environment.irods_authentication_scheme == 'pam'
           - irods_environment.irods_debug == 1

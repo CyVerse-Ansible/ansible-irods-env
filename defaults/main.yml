@@ -19,7 +19,7 @@ irods_env_encryption_algorithm: "{{ 'AES-256-CBC' if irods_env_for_server else N
 irods_env_encryption_key_size: "{{ 32 if irods_env_for_server else None }}"
 irods_env_encryption_num_hash_rounds: "{{ 16 if irods_env_for_server else None }}"
 irods_env_encryption_salt_size: "{{ 8 if irods_env_for_server else None }}"
-irods_env_match_host_policy: "{{ 'compatible' if irods_env_for_server else None }}"
+irods_env_match_hash_policy: "{{ 'compatible' if irods_env_for_server else None }}"
 irods_env_relative_home: "{{ 'home/' ~ irods_env_user_name if irods_env_for_server else '/DEFAULT' }}"
 irods_env_relative_cwd: "{{ irods_env_relative_home if irods_env_for_server else '/DEFAULT' }}"
 irods_env_authentication_file: null

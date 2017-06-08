@@ -14,7 +14,7 @@
       - not irods_env_encryption_key_size or irods_env_encryption_key_size >= 0
       - not irods_env_encryption_num_hash_rounds or irods_env_encryption_num_hash_rounds >= 0
       - not irods_env_encryption_salt_size or irods_env_encryption_salt_size >= 0
-      - not irods_env_match_host_policy or irods_env_match_host_policy in ['compatible', 'strict']
+      - not irods_env_match_hash_policy or irods_env_match_hash_policy in ['compatible', 'strict']
       - not irods_env_relative_home or irods_env_relative_home == '/DEFAULT' or irods_env_relative_home | match('[^/].*')
       - not irods_env_relative_cwd or irods_env_relative_cwd == '/DEFAULT' or irods_env_relative_cwd | match('[^/].*')
       - not irods_env_authentication_scheme or irods_env_authentication_scheme in ['gsi', 'krb', 'native', 'pam']
