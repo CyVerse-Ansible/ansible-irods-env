@@ -55,6 +55,7 @@
   "irods_home": "/{{ irods_env_zone_name }}/{{ irods_env_relative_home }}",
 {% endif %}
 {% endif %}
+"irods_host": "{{ irods_env_host }}",
 {% if irods_env_log_level or irods_env_log_level == 0 %}
   "irods_log_level": {{ irods_env_log_level }},
 {% endif %}
@@ -64,6 +65,7 @@
 {% if irods_env_plugins_home %}
   "irods_plugins_home": "{{ irods_env_plugins_home }}",
 {% endif %}
+  "irods_port": {{ irods_env_port }},
 {% if irods_env_ssl_ca_certificate_file %}
   "irods_ssl_ca_certificate_file": "{{ irods_env_ssl_ca_certificate_file }}",
 {% endif %}
@@ -82,14 +84,12 @@
 {% if irods_env_ssl_verify_server %}
   "irods_ssl_verify_server": "{{ irods_env_ssl_verify_server }}",
 {% endif %}
+  "irods_user_name": "{{ irods_env_user_name }}",
 {% if irods_env_xmsg_host %}
   "irods_xmsg_host": "{{ irods_env_xmsg_host }}",
 {% endif %}
 {% if irods_env_xmsg_port %}
   "irods_xmsg_port": {{ irods_env_xmsg_port }},
 {% endif %}
-  "irods_host": "{{ irods_env_host }}",
-  "irods_port": {{ irods_env_port }},
-  "irods_user_name": "{{ irods_env_user_name }}",
   "irods_zone_name": "{{ irods_env_zone_name }}"
 }
