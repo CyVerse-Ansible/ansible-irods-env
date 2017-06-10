@@ -119,8 +119,6 @@ See [license](/license.md)
 Author Information
 ------------------
 
-Tony Edgin
-
-tedgin@cyverse.org
-
-https://cyverse.org
+Tony Edgin  
+<tedgin@cyverse.org>
+[CyVerse](https://cyverse.org)
