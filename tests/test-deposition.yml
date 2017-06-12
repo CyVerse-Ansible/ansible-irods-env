@@ -33,10 +33,10 @@
 
     - name: validate env
       shell: |
-        /home/travis/virtualenv/python2.7.13/bin/jsonschema \
-          --instance /var/lib/irods/.irods/irods_environment.json \
+        /home/travis/virtualenv/python2.7.13/bin/jsonschema --instance {{ env_file }} \
           {{ ansible_env.HOME }}/service_account_environment.json
-      changed_When: false
+      changed_when: false
+
 
 - name: test custom file name
   hosts: localhost
