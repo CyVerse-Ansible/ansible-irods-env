@@ -26,18 +26,7 @@
         owner: irods
         group: irods
 
-    - name: download env schema
-      get_url:
-        url: https://schemas.irods.org/configuration/v2/service_account_environment.json
-        dest: "{{ ansible_env.HOME }}"
-
-    - name: validate env
-      shell: |
-        /home/travis/virtualenv/python2.7.13/bin/jsonschema \
-          --instance /var/lib/irods/.irods/irods_environment.json \
-          {{ ansible_env.HOME }}/service_account_environment.json
-      changed_When: false
-
+   
 - name: test custom file name
   hosts: localhost
   roles:

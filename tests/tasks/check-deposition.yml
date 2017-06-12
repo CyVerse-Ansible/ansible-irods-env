@@ -7,3 +7,16 @@
     not response.stat.exists or
     response.stat.pw_name != owner or
     response.stat.gr_name != group
+
+- when: irods_env_for_server
+  block:
+    - name: download env schema
+      get_url:
+        url: https://schemas.irods.org/configuration/v2/service_account_environment.json
+        dest: "{{ ansible_env.HOME }}"
+
+    - name: validate env
+      shell: |
+        /home/travis/virtualenv/python2.7.13/bin/jsonschema --instance {{ env_file }} \
+          {{ ansible_env.HOME }}/service_account_environment.json
+      changed_when: false
