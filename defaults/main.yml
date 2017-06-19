@@ -11,8 +11,8 @@ irods_env_user_name: "{{ 'rods' if irods_env_for_server else 'anonymous' }}"
 irods_env_zone_name: tempZone
 irods_env_client_server_negotiation: "{{ 'request_server_negotiation' if irods_env_for_server else None }}"
 irods_env_client_server_policy: "{{ 'CS_NEG_REFUSE' if irods_env_for_server else None }}"
-irods_env_control_plane_port: "{{ 1248 if irods_env_for_server else None }}"
-irods_env_control_plane_key: "{{ 'TEMPORARY__32byte_ctrl_plane_key' if irods_env_for_server else None }}"
+irods_env_control_plane_port: null
+irods_env_control_plane_key: null
 irods_env_default_hash_scheme: "{{ 'SHA256' if irods_env_for_server else None }}"
 irods_env_default_resource: "{{ 'demoResc' if irods_env_for_server else None }}"
 irods_env_encryption_algorithm: "{{ 'AES-256-CBC' if irods_env_for_server else None }}"
