@@ -12,6 +12,7 @@ irods_env_client_server_negotiation: "{{ 'request_server_negotiation' if irods_e
 irods_env_client_server_policy: "{{ 'CS_NEG_REFUSE' if irods_env_for_server else None }}"
 irods_env_control_plane_key: null
 irods_env_control_plane_port: null
+irods_env_cwd: "{{ irods_env_home }}"
 irods_env_debug: null
 irods_env_default_hash_scheme: "{{ 'SHA256' if irods_env_for_server else None }}"
 irods_env_default_resource: "{{ 'demoResc' if irods_env_for_server else None }}"
@@ -20,18 +21,12 @@ irods_env_encryption_key_size: "{{ 32 if irods_env_for_server else None }}"
 irods_env_encryption_num_hash_rounds: "{{ 16 if irods_env_for_server else None }}"
 irods_env_encryption_salt_size: "{{ 8 if irods_env_for_server else None }}"
 irods_env_gsi_server_dn: null
+irods_env_home: "{{ '/' ~ irods_env_zone_name ~ '/home/' ~ irods_env_user_name if irods_env_for_server else None }}"
 irods_env_host: "{{ inventory_hostname }}"
 irods_env_log_level: null
 irods_env_match_hash_policy: "{{ 'compatible' if irods_env_for_server else None }}"
 irods_env_plugins_home: null
 irods_env_port: 1247
-
-# Since None maps to '' instead of null for strings, and since '' is a valid value meaning use the
-# absolute path of /{{ irods_env_zone }}, the value /DEFAULT was chosen to indicate that the default
-# value should be used.
-irods_env_relative_cwd: "{{ irods_env_relative_home if irods_env_for_server else '/DEFAULT' }}"
-irods_env_relative_home: "{{ 'home/' ~ irods_env_user_name if irods_env_for_server else '/DEFAULT' }}"
-
 irods_env_ssl_ca_certificate_file: null
 irods_env_ssl_ca_certificate_path: null
 irods_env_ssl_certificate_chain_file: null

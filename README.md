@@ -31,6 +31,7 @@ Variable                               | Default                                
 `irods_env_client_server_policy`       |                                                  | CS_NEG_DONT_CARE, CS_NEG_REFUSE, CS_NEG_REQUIRE | which SSL policy to use
 `irods_env_control_plane_port`         |                                                  |                                                 | the port on which the control plane operates
 `irods_env_control_plane_key`          |                                                  |                                                 | the encryption key required for communicating with the grid control plane
+`irods_env_cwd`                        |                                                  |                                                 | the initial working collection
 `irods_env_debug`                      |                                                  |                                                 | desired verbosity of the debug logging level
 `irods_env_default_hash_scheme`        |                                                  | MD5, SHA256                                     | checksum scheme
 `irods_env_default_resource`           |                                                  |                                                 | the name of the resource used for iRODS operations if one is not specified
@@ -39,13 +40,12 @@ Variable                               | Default                                
 `irods_env_encryption_num_hash_rounds` |                                                  |                                                 | number of hash rounds for parallel transfer encryption
 `irods_env_encryption_salt_size`       |                                                  |                                                 | salt size for parallel transfer encryption
 `irods_env_gsi_server_dn`              |                                                  |                                                 | the distinguished name of the GSI server
+`irods_env_home`                       |                                                  |                                                 | the home collection
 `irods_env_host`                       | `inventory_hostname`                             |                                                 | a fully qualified domain name for the iRODS server to connect to
 `irods_env_log_level`                  |                                                  |                                                 | desired verbosity of logging
 `irods_env_match_hash_policy`          |                                                  | compatible, strict                              | whether or not to require given hash scheme
 `irods_env_plugins_home`               |                                                  |                                                 | directory to use for client-side plugins
 `irods_env_port`                       | 1247                                             |                                                 | the port for the given iRODS zone
-`irods_env_relative_cwd`               |                                                  |                                                 | the initial working collection relative to the /`irods_env_zone_name`, don't prefix with '/'
-`irods_env_relative_home`              |                                                  |                                                 | the home collection relative to the /`irods_env_zone_name`, don't prefix with '/'
 `irods_env_ssl_ca_certificate_file`    |                                                  |                                                 | location of a file of trusted CA certificates in PEM format
 `irods_env_ssl_ca_certificate_path`    |                                                  |                                                 | location of a directory containing CA certificates in PEM format
 `irods_env_ssl_certificate_chain_file` |                                                  |                                                 | the file containing the server's certificate chain
@@ -61,6 +61,7 @@ If `irods_env_for_server` is set to `true`, some of the variables have different
 
 Variable                               | Server Default
 -------------------------------------- | --------------
+`irods_env_cwd`                        | `irods_env_home`
 `irods_env_file`                       | /var/lib/irods/.irods/irods_environment.json
 `irods_env_sys_user_name`              | irods
 `irods_env_client_server_negotiation`  | request_server_negotiation
@@ -74,8 +75,7 @@ Variable                               | Server Default
 `irods_env_encryption_num_hash_rounds` | 16
 `irods_env_encryption_salt_size`       | 8
 `irods_env_match_hash_policy`          | compatible
-`irods_env_relative_cwd`               | `irods_env_relative_home`
-`irods_env_relative_home`              | home/`irods_env_user_name`
+`irods_env_home`                       | /`irods_env_zone_name`/home/`irods_env_user_name`
 `irods_env_user_name`                  | rods
 
 

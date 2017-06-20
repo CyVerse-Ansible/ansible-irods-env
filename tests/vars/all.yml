@@ -1,4 +1,6 @@
 ---
+irods_env_cwd: /cwd
+irods_env_home: /home
 irods_env_host: host
 irods_env_port: 1
 irods_env_user_name: user
@@ -14,8 +16,6 @@ irods_env_encryption_key_size: 4
 irods_env_encryption_num_hash_rounds: 8
 irods_env_encryption_salt_size: 16
 irods_env_match_hash_policy: strict
-irods_env_relative_home: home
-irods_env_relative_cwd: cwd
 irods_env_authentication_file: authentication_file
 irods_env_authentication_scheme: pam
 irods_env_debug: 1

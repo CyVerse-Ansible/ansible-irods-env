@@ -121,22 +121,22 @@
   gather_facts: false
   vars_files:
     - ../defaults/main.yml
-    - vars/relative_home.yml
+    - vars/home.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_home == '/tempZone/custom'
-          - irods_environment.irods_cwd == '/tempZone/custom'
+          - irods_environment.irods_home == '/custom'
+          - irods_environment.irods_cwd == '/custom'
 
 - name: test custom cwd
   hosts: localhost
   gather_facts: false
   vars_files:
     - ../defaults/main.yml
-    - vars/relative_cwd.yml
+    - vars/cwd.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -144,7 +144,7 @@
       assert:
         that:
           - irods_environment.irods_home == '/tempZone/home/rods'
-          - irods_environment.irods_cwd == '/tempZone/custom'
+          - irods_environment.irods_cwd == '/custom'
 
 - name: test all custom
   hosts: localhost
@@ -166,14 +166,14 @@
           - irods_environment.irods_client_server_policy == 'CS_NEG_DONT_CARE'
           - irods_environment.irods_control_plane_port == 2
           - irods_environment.irods_control_plane_key == 'CUSTOM_____32byte_ctrl_plane_key'
-          - irods_environment.irods_cwd == '/zone/cwd'
+          - irods_environment.irods_cwd == '/cwd'
           - irods_environment.irods_default_hash_scheme == 'MD5'
           - irods_environment.irods_default_resource == 'resource'
           - irods_environment.irods_encryption_algorithm == 'algorithm'
           - irods_environment.irods_encryption_key_size == 4
           - irods_environment.irods_encryption_num_hash_rounds == 8
           - irods_environment.irods_encryption_salt_size == 16
-          - irods_environment.irods_home == '/zone/home'
+          - irods_environment.irods_home == '/home'
           - irods_environment.irods_match_hash_policy == 'strict'
           - irods_environment.irods_authentication_file == 'authentication_file'
           - irods_environment.irods_authentication_scheme == 'pam'
@@ -206,5 +206,3 @@
           - irods_environment.irods_encryption_salt_size == 0
           - irods_environment.irods_debug == 0
           - irods_environment.irods_log_level == 0
-          - irods_environment.irods_home == '/tempZone'
-          - irods_environment.irods_cwd == '/tempZone'

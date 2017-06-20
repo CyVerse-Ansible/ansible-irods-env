@@ -1,4 +1,4 @@
 ---
 irods_env_for_server: true
 
-irods_env_relative_home: custom
+irods_env_cwd: /custom

@@ -1,4 +1,11 @@
 ---
+- name: check if using irods_env_relative_cwd or irods_env_relative_home
+  when: irods_env_relative_cwd is defined or irods_env_relative_home is defined
+  fail:
+    msg: <
+      irods_env_relative_cwd and irods_env_relative_home have been removed. Please use irods_env_cwd
+      and irods_env_home instead.
+
 - include: validate.yml
 
 - name: ensure path to environment file exists
