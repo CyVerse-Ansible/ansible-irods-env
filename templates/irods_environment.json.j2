@@ -17,8 +17,8 @@
 {% if irods_env_control_plane_key %}
   "irods_control_plane_key": "{{ irods_env_control_plane_key }}",
 {% endif %}
-{% if irods_env_relative_cwd is not none and irods_env_relative_cwd != '/DEFAULT' %}
-  "irods_cwd": "/{{ irods_env_zone_name }}{% if irods_env_relative_cwd != '' %}/{{ irods_env_relative_cwd }}{% endif %}",
+{% if irods_env_cwd %}
+  "irods_cwd": "{{ irods_env_cwd }}",
 {% endif %}
 {% if irods_env_debug or irods_env_debug == 0 %}
   "irods_debug": {{ irods_env_debug }},
@@ -44,8 +44,8 @@
 {% if irods_env_gsi_server_dn %}
   "irods_gsi_server_dn": "{{ irods_env_gsi_server_dn }}",
 {% endif %}
-{% if irods_env_relative_home is not none and irods_env_relative_home != '/DEFAULT' %}
-  "irods_home": "/{{ irods_env_zone_name }}{% if irods_env_relative_home != '' %}/{{ irods_env_relative_home }}{% endif %}",
+{% if irods_env_home %}
+  "irods_home": "{{ irods_env_home }}",
 {% endif %}
   "irods_host": "{{ irods_env_host }}",
 {% if irods_env_log_level or irods_env_log_level == 0 %}
