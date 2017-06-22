@@ -120,5 +120,5 @@ Author Information
 ------------------
 
 Tony Edgin  
-<tedgin@cyverse.org>
+<tedgin@cyverse.org>  
 [CyVerse](https://cyverse.org)
