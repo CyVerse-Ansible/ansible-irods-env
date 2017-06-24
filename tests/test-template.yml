@@ -1,9 +1,9 @@
 ---
 - name: test default variables generate correct irods_environment.json
   hosts: localhost
-  gather_facts: false
   vars_files:
     - ../defaults/main.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -47,6 +47,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/for_server.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -90,6 +91,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/zone_name.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -106,6 +108,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/user_name.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -122,6 +125,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/home.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -137,6 +141,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/cwd.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -152,6 +157,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/all.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:
@@ -195,6 +201,7 @@
   vars_files:
     - ../defaults/main.yml
     - vars/weird_expansions.yml
+    - ../vars/main.yml
   vars:
     irods_environment: "{{ lookup('template', '../templates/irods_environment.json.j2') }}"
   tasks:

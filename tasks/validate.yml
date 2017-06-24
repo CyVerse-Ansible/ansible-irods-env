@@ -2,24 +2,21 @@
 - name: validate variables
   assert:
     that:
-      - irods_env_host is not none
-      - irods_env_port >= 1
-      - irods_env_user_name is not none
-      - irods_env_zone_name is not none
-      - not irods_env_client_server_negotiation or irods_env_client_server_negotiation in ['none', 'request_server_negotiation']
-      - not irods_env_client_server_policy or irods_env_client_server_policy in ['CS_NEG_DONT_CARE', 'CS_NEG_REFUSE', 'CS_NEG_REQUIRE']
-      - not irods_env_control_plane_port or irods_env_control_plane_port >= 1
-      - not irods_env_control_plane_key or irods_env_control_plane_key | length == 32
-      - not irods_env_cwd or irods_env_cwd | match('^/..*')
-      - not irods_env_default_hash_scheme or irods_env_default_hash_scheme in ['MD5', 'SHA256']
-      - not irods_env_encryption_key_size or irods_env_encryption_key_size >= 0
-      - not irods_env_encryption_num_hash_rounds or irods_env_encryption_num_hash_rounds >= 0
-      - not irods_env_encryption_salt_size or irods_env_encryption_salt_size >= 0
-      - not irods_env_match_hash_policy or irods_env_match_hash_policy in ['compatible', 'strict']
-      - not irods_env_home or irods_env_home | match('/..*')
-      - not irods_env_authentication_scheme or irods_env_authentication_scheme in ['gsi', 'krb', 'native', 'pam']
-      - not irods_env_debug or irods_env_debug >= 0
-      - not irods_env_log_level or irods_env_log_level >= 0
-      - not irods_env_ssl_verify_server or irods_env_ssl_verify_server in ['cert', 'hostname', 'none']
-      - not irods_env_xmsg_port or irods_env_xmsg_port >= 1
+      - irods_env.port >= 1
+      - not irods_env.client_server_negotiation or irods_env.client_server_negotiation in ['none', 'request_server_negotiation']
+      - not irods_env.client_server_policy or irods_env.client_server_policy in ['CS_NEG_DONT_CARE', 'CS_NEG_REFUSE', 'CS_NEG_REQUIRE']
+      - not irods_env.control_plane_port or irods_env.control_plane_port >= 1
+      - not irods_env.control_plane_key or irods_env.control_plane_key | length == 32
+      - not irods_env.cwd or irods_env.cwd | match('^/..*')
+      - not irods_env.default_hash_scheme or irods_env.default_hash_scheme in ['MD5', 'SHA256']
+      - not irods_env.encryption_key_size or irods_env.encryption_key_size >= 0
+      - not irods_env.encryption_num_hash_rounds or irods_env.encryption_num_hash_rounds >= 0
+      - not irods_env.encryption_salt_size or irods_env.encryption_salt_size >= 0
+      - not irods_env.match_hash_policy or irods_env.match_hash_policy in ['compatible', 'strict']
+      - not irods_env.home or irods_env.home | match('/..*')
+      - not irods_env.authentication_scheme or irods_env.authentication_scheme in ['gsi', 'krb', 'native', 'pam']
+      - not irods_env.debug or irods_env.debug >= 0
+      - not irods_env.log_level or irods_env.log_level >= 0
+      - not irods_env.ssl_verify_server or irods_env.ssl_verify_server in ['cert', 'hostname', 'none']
+      - not irods_env.xmsg_port or irods_env.xmsg_port >= 1
   ignore_errors: true

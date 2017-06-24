@@ -1,30 +1,30 @@
 ---
 irods_env_for_server: false
 
-irods_env_file: "{{ '/var/lib/irods' if irods_env_for_server else ansible_env.HOME }}/.irods/irods_environment.json"
-irods_env_sys_user_name: "{{ 'irods' if irods_env_for_server else ansible_env.USER }}"
-irods_env_sys_group_name: "{{ irods_env_sys_user_name }}"
+irods_env_file: null
+irods_env_sys_user_name: null
+irods_env_sys_group_name: null
 
 # Variables affecting irods_env_file fields
 irods_env_authentication_file: null
 irods_env_authentication_scheme: null
-irods_env_client_server_negotiation: "{{ 'request_server_negotiation' if irods_env_for_server else None }}"
-irods_env_client_server_policy: "{{ 'CS_NEG_REFUSE' if irods_env_for_server else None }}"
+irods_env_client_server_negotiation: null
+irods_env_client_server_policy: null
 irods_env_control_plane_key: null
 irods_env_control_plane_port: null
-irods_env_cwd: "{{ irods_env_home }}"
+irods_env_cwd: null
 irods_env_debug: null
-irods_env_default_hash_scheme: "{{ 'SHA256' if irods_env_for_server else None }}"
-irods_env_default_resource: "{{ 'demoResc' if irods_env_for_server else None }}"
-irods_env_encryption_algorithm: "{{ 'AES-256-CBC' if irods_env_for_server else None }}"
-irods_env_encryption_key_size: "{{ 32 if irods_env_for_server else None }}"
-irods_env_encryption_num_hash_rounds: "{{ 16 if irods_env_for_server else None }}"
-irods_env_encryption_salt_size: "{{ 8 if irods_env_for_server else None }}"
+irods_env_default_hash_scheme: null
+irods_env_default_resource: null
+irods_env_encryption_algorithm: null
+irods_env_encryption_key_size: null
+irods_env_encryption_num_hash_rounds: null
+irods_env_encryption_salt_size: null
 irods_env_gsi_server_dn: null
-irods_env_home: "{{ '/' ~ irods_env_zone_name ~ '/home/' ~ irods_env_user_name if irods_env_for_server else None }}"
-irods_env_host: "{{ inventory_hostname }}"
+irods_env_home: null
+irods_env_host: null
 irods_env_log_level: null
-irods_env_match_hash_policy: "{{ 'compatible' if irods_env_for_server else None }}"
+irods_env_match_hash_policy: null
 irods_env_plugins_home: null
 irods_env_port: 1247
 irods_env_ssl_ca_certificate_file: null
@@ -33,7 +33,7 @@ irods_env_ssl_certificate_chain_file: null
 irods_env_ssl_certificate_key_file: null
 irods_env_ssl_dh_params_file: null
 irods_env_ssl_verify_server: null
-irods_env_user_name: "{{ 'rods' if irods_env_for_server else 'anonymous' }}"
+irods_env_user_name: null
 irods_env_xmsg_host: null
 irods_env_xmsg_port: null
-irods_env_zone_name: tempZone
+irods_env_zone_name: null

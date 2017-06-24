@@ -1,87 +1,87 @@
 {
-{% if irods_env_authentication_file %}
-  "irods_authentication_file": "{{ irods_env_authentication_file }}",
+{% if irods_env.authentication_file %}
+  "irods_authentication_file": "{{ irods_env.authentication_file }}",
 {% endif %}
-{% if irods_env_authentication_scheme %}
-  "irods_authentication_scheme": "{{ irods_env_authentication_scheme }}",
+{% if irods_env.authentication_scheme %}
+  "irods_authentication_scheme": "{{ irods_env.authentication_scheme }}",
 {% endif %}
-{% if irods_env_client_server_negotiation %}
-  "irods_client_server_negotiation": "{{ irods_env_client_server_negotiation }}",
+{% if irods_env.client_server_negotiation %}
+  "irods_client_server_negotiation": "{{ irods_env.client_server_negotiation }}",
 {% endif %}
-{% if irods_env_client_server_policy %}
-  "irods_client_server_policy": "{{ irods_env_client_server_policy }}",
+{% if irods_env.client_server_policy %}
+  "irods_client_server_policy": "{{ irods_env.client_server_policy }}",
 {% endif %}
-{% if irods_env_control_plane_port %}
-  "irods_control_plane_port": {{ irods_env_control_plane_port }},
+{% if irods_env.control_plane_port %}
+  "irods_control_plane_port": {{ irods_env.control_plane_port }},
 {% endif %}
-{% if irods_env_control_plane_key %}
-  "irods_control_plane_key": "{{ irods_env_control_plane_key }}",
+{% if irods_env.control_plane_key %}
+  "irods_control_plane_key": "{{ irods_env.control_plane_key }}",
 {% endif %}
-{% if irods_env_cwd %}
-  "irods_cwd": "{{ irods_env_cwd }}",
+{% if irods_env.cwd %}
+  "irods_cwd": "{{ irods_env.cwd }}",
 {% endif %}
-{% if irods_env_debug or irods_env_debug == 0 %}
-  "irods_debug": {{ irods_env_debug }},
+{% if irods_env.debug or irods_env.debug == 0 %}
+  "irods_debug": {{ irods_env.debug }},
 {% endif %}
-{% if irods_env_default_hash_scheme %}
-  "irods_default_hash_scheme": "{{ irods_env_default_hash_scheme }}",
+{% if irods_env.default_hash_scheme %}
+  "irods_default_hash_scheme": "{{ irods_env.default_hash_scheme }}",
 {% endif %}
-{% if irods_env_default_resource %}
-  "irods_default_resource": "{{ irods_env_default_resource }}",
+{% if irods_env.default_resource %}
+  "irods_default_resource": "{{ irods_env.default_resource }}",
 {% endif %}
-{% if irods_env_encryption_algorithm %}
-  "irods_encryption_algorithm": "{{ irods_env_encryption_algorithm }}",
+{% if irods_env.encryption_algorithm %}
+  "irods_encryption_algorithm": "{{ irods_env.encryption_algorithm }}",
 {% endif %}
-{% if irods_env_encryption_key_size or irods_env_encryption_key_size == 0 %}
-  "irods_encryption_key_size": {{ irods_env_encryption_key_size }},
+{% if irods_env.encryption_key_size or irods_env.encryption_key_size == 0 %}
+  "irods_encryption_key_size": {{ irods_env.encryption_key_size }},
 {% endif %}
-{% if irods_env_encryption_num_hash_rounds or irods_env_encryption_num_hash_rounds == 0 %}
-  "irods_encryption_num_hash_rounds": {{ irods_env_encryption_num_hash_rounds }},
+{% if irods_env.encryption_num_hash_rounds or irods_env.encryption_num_hash_rounds == 0 %}
+  "irods_encryption_num_hash_rounds": {{ irods_env.encryption_num_hash_rounds }},
 {% endif %}
-{% if irods_env_encryption_salt_size or irods_env_encryption_salt_size == 0 %}
-  "irods_encryption_salt_size": {{ irods_env_encryption_salt_size }},
+{% if irods_env.encryption_salt_size or irods_env.encryption_salt_size == 0 %}
+  "irods_encryption_salt_size": {{ irods_env.encryption_salt_size }},
 {% endif %}
-{% if irods_env_gsi_server_dn %}
-  "irods_gsi_server_dn": "{{ irods_env_gsi_server_dn }}",
+{% if irods_env.gsi_server_dn %}
+  "irods_gsi_server_dn": "{{ irods_env.gsi_server_dn }}",
 {% endif %}
-{% if irods_env_home %}
-  "irods_home": "{{ irods_env_home }}",
+{% if irods_env.home %}
+  "irods_home": "{{ irods_env.home }}",
 {% endif %}
-"irods_host": "{{ irods_env_host }}",
-{% if irods_env_log_level or irods_env_log_level == 0 %}
-  "irods_log_level": {{ irods_env_log_level }},
+"irods_host": "{{ irods_env.host }}",
+{% if irods_env.log_level or irods_env.log_level == 0 %}
+  "irods_log_level": {{ irods_env.log_level }},
 {% endif %}
-{% if irods_env_match_hash_policy %}
-  "irods_match_hash_policy": "{{ irods_env_match_hash_policy }}",
+{% if irods_env.match_hash_policy %}
+  "irods_match_hash_policy": "{{ irods_env.match_hash_policy }}",
 {% endif %}
-{% if irods_env_plugins_home %}
-  "irods_plugins_home": "{{ irods_env_plugins_home }}",
+{% if irods_env.plugins_home %}
+  "irods_plugins_home": "{{ irods_env.plugins_home }}",
 {% endif %}
-  "irods_port": {{ irods_env_port }},
-{% if irods_env_ssl_ca_certificate_file %}
-  "irods_ssl_ca_certificate_file": "{{ irods_env_ssl_ca_certificate_file }}",
+  "irods_port": {{ irods_env.port }},
+{% if irods_env.ssl_ca_certificate_file %}
+  "irods_ssl_ca_certificate_file": "{{ irods_env.ssl_ca_certificate_file }}",
 {% endif %}
-{% if irods_env_ssl_ca_certificate_path %}
-  "irods_ssl_ca_certificate_path": "{{ irods_env_ssl_ca_certificate_path }}",
+{% if irods_env.ssl_ca_certificate_path %}
+  "irods_ssl_ca_certificate_path": "{{ irods_env.ssl_ca_certificate_path }}",
 {% endif %}
-{% if irods_env_ssl_certificate_chain_file %}
-  "irods_ssl_certificate_chain_file": "{{ irods_env_ssl_certificate_chain_file }}",
+{% if irods_env.ssl_certificate_chain_file %}
+  "irods_ssl_certificate_chain_file": "{{ irods_env.ssl_certificate_chain_file }}",
 {% endif %}
-{% if irods_env_ssl_certificate_key_file %}
-  "irods_ssl_certificate_key_file": "{{ irods_env_ssl_certificate_key_file }}",
+{% if irods_env.ssl_certificate_key_file %}
+  "irods_ssl_certificate_key_file": "{{ irods_env.ssl_certificate_key_file }}",
 {% endif %}
-{% if irods_env_ssl_dh_params_file %}
-  "irods_ssl_dh_params_file": "{{ irods_env_ssl_dh_params_file }}",
+{% if irods_env.ssl_dh_params_file %}
+  "irods_ssl_dh_params_file": "{{ irods_env.ssl_dh_params_file }}",
 {% endif %}
-{% if irods_env_ssl_verify_server %}
-  "irods_ssl_verify_server": "{{ irods_env_ssl_verify_server }}",
+{% if irods_env.ssl_verify_server %}
+  "irods_ssl_verify_server": "{{ irods_env.ssl_verify_server }}",
 {% endif %}
-  "irods_user_name": "{{ irods_env_user_name }}",
-{% if irods_env_xmsg_host %}
-  "irods_xmsg_host": "{{ irods_env_xmsg_host }}",
+  "irods_user_name": "{{ irods_env.user_name }}",
+{% if irods_env.xmsg_host %}
+  "irods_xmsg_host": "{{ irods_env.xmsg_host }}",
 {% endif %}
-{% if irods_env_xmsg_port %}
-  "irods_xmsg_port": {{ irods_env_xmsg_port }},
+{% if irods_env.xmsg_port %}
+  "irods_xmsg_port": {{ irods_env.xmsg_port }},
 {% endif %}
-  "irods_zone_name": "{{ irods_env_zone_name }}"
+  "irods_zone_name": "{{ irods_env.zone_name }}"
 }
