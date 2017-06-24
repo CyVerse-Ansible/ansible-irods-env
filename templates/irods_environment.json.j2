@@ -47,7 +47,7 @@
 {% if irods_env.home %}
   "irods_home": "{{ irods_env.home }}",
 {% endif %}
-"irods_host": "{{ irods_env.host }}",
+  "irods_host": "{{ irods_env.host }}",
 {% if irods_env.log_level or irods_env.log_level == 0 %}
   "irods_log_level": {{ irods_env.log_level }},
 {% endif %}
