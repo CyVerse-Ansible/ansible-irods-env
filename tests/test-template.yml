@@ -10,10 +10,6 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_host == 'localhost'
-          - irods_environment.irods_port == 1247
-          - irods_environment.irods_user_name == 'anonymous'
-          - irods_environment.irods_zone_name == 'tempZone'
           - irods_environment.irods_authentication_file is not defined
           - irods_environment.irods_authentication_scheme is not defined
           - irods_environment.irods_client_server_negotiation is not defined
@@ -30,16 +26,20 @@
           - irods_environment.irods_encryption_salt_size is not defined
           - irods_environment.irods_gsi_server_dn is not defined
           - irods_environment.irods_home is not defined
+          - irods_environment.irods_host == 'localhost'
           - irods_environment.irods_log_level is not defined
           - irods_environment.irods_match_hash_policy is not defined
           - irods_environment.irods_plugins_home is not defined
+          - irods_environment.irods_port == 1247
           - irods_environment.irods_ssl_ca_certificate_file is not defined
           - irods_environment.irods_ssl_ca_certificate_path is not defined
           - irods_environment.irods_ssl_certificate_chain_file is not defined
           - irods_environment.irods_ssl_certificate_key_file is not defined
           - irods_environment.irods_ssl_dh_params_file is not defined
+          - irods_environment.irods_user_name == 'anonymous'
           - irods_environment.irods_xmsg_host is not defined
           - irods_environment.irods_xmsg_port is not defined
+          - irods_environment.irods_zone_name == 'tempZone'
 
 - name: test for_server true generates correct irods_environment.json
   hosts: localhost
@@ -54,36 +54,36 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_host == 'localhost'
-          - irods_environment.irods_port == 1247
-          - irods_environment.irods_user_name == 'rods'
-          - irods_environment.irods_zone_name == 'tempZone'
+          - irods_environment.irods_authentication_file is not defined
+          - irods_environment.irods_authentication_scheme is not defined
           - irods_environment.irods_client_server_negotiation == 'request_server_negotiation'
           - irods_environment.irods_client_server_policy == 'CS_NEG_REFUSE'
-          - irods_environment.irods_control_plane_port is not defined
           - irods_environment.irods_control_plane_key is not defined
+          - irods_environment.irods_control_plane_port is not defined
           - irods_environment.irods_cwd == '/tempZone/home/rods'
+          - irods_environment.irods_debug is not defined
           - irods_environment.irods_default_hash_scheme == 'SHA256'
           - irods_environment.irods_default_resource == 'demoResc'
           - irods_environment.irods_encryption_algorithm == 'AES-256-CBC'
           - irods_environment.irods_encryption_key_size == 32
           - irods_environment.irods_encryption_num_hash_rounds == 16
           - irods_environment.irods_encryption_salt_size == 8
-          - irods_environment.irods_home == '/tempZone/home/rods'
-          - irods_environment.irods_match_hash_policy == 'compatible'
-          - irods_environment.irods_authentication_file is not defined
-          - irods_environment.irods_authentication_scheme is not defined
-          - irods_environment.irods_debug is not defined
           - irods_environment.irods_gsi_server_dn is not defined
+          - irods_environment.irods_home == '/tempZone/home/rods'
+          - irods_environment.irods_host == 'localhost'
           - irods_environment.irods_log_level is not defined
+          - irods_environment.irods_match_hash_policy == 'compatible'
           - irods_environment.irods_plugins_home is not defined
+          - irods_environment.irods_port == 1247
           - irods_environment.irods_ssl_ca_certificate_file is not defined
           - irods_environment.irods_ssl_ca_certificate_path is not defined
           - irods_environment.irods_ssl_certificate_chain_file is not defined
           - irods_environment.irods_ssl_certificate_key_file is not defined
           - irods_environment.irods_ssl_dh_params_file is not defined
+          - irods_environment.irods_user_name == 'rods'
           - irods_environment.irods_xmsg_host is not defined
           - irods_environment.irods_xmsg_port is not defined
+          - irods_environment.irods_zone_name == 'tempZone'
 
 - name: test custom zone
   hosts: localhost
@@ -98,9 +98,9 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_zone_name == 'custom'
           - irods_environment.irods_cwd == '/custom/home/rods'
           - irods_environment.irods_home == '/custom/home/rods'
+          - irods_environment.irods_zone_name == 'custom'
 
 - name: test custom user
   hosts: localhost
@@ -115,9 +115,9 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_user_name == 'custom'
           - irods_environment.irods_cwd == '/tempZone/home/custom'
           - irods_environment.irods_home == '/tempZone/home/custom'
+          - irods_environment.irods_user_name == 'custom'
 
 - name: test custom home
   hosts: localhost
@@ -132,8 +132,8 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_home == '/custom'
           - irods_environment.irods_cwd == '/custom'
+          - irods_environment.irods_home == '/custom'
 
 - name: test custom cwd
   hosts: localhost
@@ -148,8 +148,8 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_home == '/tempZone/home/rods'
           - irods_environment.irods_cwd == '/custom'
+          - irods_environment.irods_home == '/tempZone/home/rods'
 
 - name: test all custom
   hosts: localhost
@@ -164,36 +164,36 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
-          - irods_environment.irods_host == 'host'
-          - irods_environment.irods_port == 1
-          - irods_environment.irods_user_name == 'user'
-          - irods_environment.irods_zone_name == 'zone'
+          - irods_environment.irods_authentication_file == 'authentication_file'
+          - irods_environment.irods_authentication_scheme == 'pam'
           - irods_environment.irods_client_server_negotiation == 'none'
           - irods_environment.irods_client_server_policy == 'CS_NEG_DONT_CARE'
-          - irods_environment.irods_control_plane_port == 2
           - irods_environment.irods_control_plane_key == 'CUSTOM_____32byte_ctrl_plane_key'
+          - irods_environment.irods_control_plane_port == 2
           - irods_environment.irods_cwd == '/cwd'
+          - irods_environment.irods_debug == 1
           - irods_environment.irods_default_hash_scheme == 'MD5'
           - irods_environment.irods_default_resource == 'resource'
           - irods_environment.irods_encryption_algorithm == 'algorithm'
           - irods_environment.irods_encryption_key_size == 4
           - irods_environment.irods_encryption_num_hash_rounds == 8
           - irods_environment.irods_encryption_salt_size == 16
-          - irods_environment.irods_home == '/home'
-          - irods_environment.irods_match_hash_policy == 'strict'
-          - irods_environment.irods_authentication_file == 'authentication_file'
-          - irods_environment.irods_authentication_scheme == 'pam'
-          - irods_environment.irods_debug == 1
           - irods_environment.irods_gsi_server_dn == 'dn'
+          - irods_environment.irods_home == '/home'
+          - irods_environment.irods_host == 'host'
           - irods_environment.irods_log_level == 3
+          - irods_environment.irods_match_hash_policy == 'strict'
           - irods_environment.irods_plugins_home == '/home'
+          - irods_environment.irods_port == 1
           - irods_environment.irods_ssl_ca_certificate_file == 'certificate_file'
           - irods_environment.irods_ssl_ca_certificate_path == '/path'
           - irods_environment.irods_ssl_certificate_chain_file == 'chain_file'
           - irods_environment.irods_ssl_certificate_key_file == 'key_file'
           - irods_environment.irods_ssl_dh_params_file == 'params_file'
+          - irods_environment.irods_user_name == 'user'
           - irods_environment.irods_xmsg_host == 'xmsg_host'
           - irods_environment.irods_xmsg_port == 3
+          - irods_environment.irods_zone_name == 'zone'
 
 - name: test jinja falsey rules don't trip us up
   hosts: localhost
@@ -208,8 +208,8 @@
     - name: verify irods_environment.json expands correctly
       assert:
         that:
+          - irods_environment.irods_debug == 0
           - irods_environment.irods_encryption_key_size == 0
           - irods_environment.irods_encryption_num_hash_rounds == 0
           - irods_environment.irods_encryption_salt_size == 0
-          - irods_environment.irods_debug == 0
           - irods_environment.irods_log_level == 0
