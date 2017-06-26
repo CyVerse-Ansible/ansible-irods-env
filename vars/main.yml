@@ -1,16 +1,4 @@
 ---
-__irods_env_user_name: "{{ irods_env_user_name if irods_env_user_name else
-                           'rods'              if irods_env_for_server else
-                           'anonymous' }}"
-
-__irods_env_zone_name: "{{ irods_env_zone_name if irods_env_zone_name else 'tempZone' }}"
-
-__irods_env_home: "{{
-    irods_env_home                                                 if irods_env_home else
-    '/' ~ __irods_env_zone_name ~ '/home/' ~ __irods_env_user_name if irods_env_for_server else
-    None }}"
-
-
 _irods_env_file: "{{
     irods_env_file    if irods_env_file else
     ('/var/lib/irods' if irods_env_for_server else ansible_env.HOME)
@@ -23,62 +11,101 @@ _irods_env_sys_user_name: "{{ irods_env_sys_user_name if irods_env_sys_user_name
 _irods_env_sys_group_name: "{{ irods_env_sys_group_name if irods_env_sys_group_name else
                                _irods_env_sys_user_name }}"
 
-_irods_env:
-  authentication_file: "{{ irods_env_authentication_file if irods_env_authentication_file else
-                           None }}"
-  authentication_scheme: "{{ irods_env_authentication_scheme if irods_env_authentication_scheme else
-                             None }}"
-  client_server_negotiation: "{{
-      irods_env_client_server_negotiation if irods_env_client_server_negotiation else
-      'request_server_negotiation'        if irods_env_for_server else
-      None }}"
-  client_server_policy: "{{ irods_env_client_server_policy if irods_env_client_server_policy else
-                            'CS_NEG_REFUSE'                if irods_env_for_server else
-                            None }}"
-  control_plane_key: "{{ irods_env_control_plane_key }}"
-  control_plane_port: "{{ irods_env_control_plane_port }}"
-  cwd: "{{ irods_env_cwd if irods_env_cwd else __irods_env_home }}"
-  debug: "{{ irods_env_debug }}"
-  default_hash_scheme: "{{ irods_env_default_hash_scheme if irods_env_default_hash_scheme else
-                           'SHA256'                      if irods_env_for_server else
-                           None }}"
-  default_resource: "{{ irods_env_default_resource if irods_env_default_resource else
-                        'demoResc'                 if irods_env_for_server else
-                        None }}"
-  encryption_algorithm: "{{ irods_env_encryption_algorithm if irods_env_encryption_algorithm else
-                            'AES-256-CBC'                  if irods_env_for_server else
-                            None }}"
-  encryption_key_size: "{{ irods_env_encryption_key_size if irods_env_encryption_key_size or
-                                                            irods_env_encryption_key_size == 0 else
-                           32                            if irods_env_for_server else
-                           None }}"
-  encryption_num_hash_rounds: "{{
-      irods_env_encryption_num_hash_rounds if irods_env_encryption_num_hash_rounds or
-                                              irods_env_encryption_num_hash_rounds == 0 else
-      16                                   if irods_env_for_server else
-      None }}"
-  encryption_salt_size: "{{
-      irods_env_encryption_salt_size if irods_env_encryption_salt_size or
-                                        irods_env_encryption_salt_size == 0 else
-      8                              if irods_env_for_server else
+_irods_env_user_name: "{{ irods_env_user_name if irods_env_user_name else
+                          'rods'              if irods_env_for_server else
+                          'anonymous' }}"
 
-      None }}"
-  gsi_server_dn: "{{ irods_env_gsi_server_dn }}"
-  home: "{{ __irods_env_home }}"
-  host: "{{ irods_env_host if irods_env_host else inventory_hostname }}"
-  log_level: "{{ irods_env_log_level }}"
-  match_hash_policy: "{{ irods_env_match_hash_policy if irods_env_match_hash_policy else
-                         'compatible'                if irods_env_for_server else
-                         None }}"
-  plugins_home: "{{ irods_env_plugins_home }}"
-  port: "{{ irods_env_port if irods_env_port else 1247 }}"
-  ssl_ca_certificate_file: "{{ irods_env_ssl_ca_certificate_file }}"
-  ssl_ca_certificate_path: "{{ irods_env_ssl_ca_certificate_path }}"
-  ssl_certificate_chain_file: "{{ irods_env_ssl_certificate_chain_file }}"
-  ssl_certificate_key_file: "{{ irods_env_ssl_certificate_key_file }}"
-  ssl_dh_params_file: "{{ irods_env_ssl_dh_params_file }}"
-  ssl_verify_server: "{{ irods_env_ssl_verify_server }}"
-  user_name: "{{ __irods_env_user_name }}"
-  xmsg_host: "{{ irods_env_xmsg_host }}"
-  xmsg_port: "{{ irods_env_xmsg_port }}"
-  zone_name: "{{ __irods_env_zone_name }}"
+_irods_env_zone_name: "{{ irods_env_zone_name if irods_env_zone_name else 'tempZone' }}"
+
+_irods_env_home: "{{
+    irods_env_home                                               if irods_env_home else
+    '/' ~ _irods_env_zone_name ~ '/home/' ~ _irods_env_user_name if irods_env_for_server else
+    None }}"
+
+_irods_env_authentication_file: "{{
+    irods_env_authentication_file if irods_env_authentication_file else
+    None }}"
+
+_irods_env_authentication_scheme: "{{
+    irods_env_authentication_scheme if irods_env_authentication_scheme else
+    None }}"
+
+_irods_env_client_server_negotiation: "{{
+    irods_env_client_server_negotiation if irods_env_client_server_negotiation else
+    'request_server_negotiation'        if irods_env_for_server else
+    None }}"
+
+_irods_env_client_server_policy: "{{
+    irods_env_client_server_policy if irods_env_client_server_policy else
+    'CS_NEG_REFUSE'                if irods_env_for_server else
+    None }}"
+
+_irods_env_control_plane_key: "{{ irods_env_control_plane_key }}"
+
+_irods_env_control_plane_port: "{{ irods_env_control_plane_port }}"
+
+_irods_env_cwd: "{{ irods_env_cwd if irods_env_cwd else _irods_env_home }}"
+
+_irods_env_debug: "{{ irods_env_debug }}"
+
+_irods_env_default_hash_scheme: "{{
+    irods_env_default_hash_scheme if irods_env_default_hash_scheme else
+    'SHA256'                      if irods_env_for_server else
+    None }}"
+
+_irods_env_default_resource: "{{ irods_env_default_resource if irods_env_default_resource else
+                                 'demoResc'                 if irods_env_for_server else
+                                 None }}"
+
+_irods_env_encryption_algorithm: "{{
+    irods_env_encryption_algorithm if irods_env_encryption_algorithm else
+    'AES-256-CBC'                  if irods_env_for_server else
+    None }}"
+
+_irods_env_encryption_key_size: "{{
+    irods_env_encryption_key_size if irods_env_encryption_key_size or
+                                     irods_env_encryption_key_size == 0 else
+    32                            if irods_env_for_server else
+    None }}"
+
+_irods_env_encryption_num_hash_rounds: "{{
+    irods_env_encryption_num_hash_rounds if irods_env_encryption_num_hash_rounds or
+                                            irods_env_encryption_num_hash_rounds == 0 else
+    16                                   if irods_env_for_server else
+    None }}"
+
+_irods_env_encryption_salt_size: "{{
+    irods_env_encryption_salt_size if irods_env_encryption_salt_size or
+                                      irods_env_encryption_salt_size == 0 else
+    8                              if irods_env_for_server else
+    None }}"
+
+_irods_env_gsi_server_dn: "{{ irods_env_gsi_server_dn }}"
+
+_irods_env_host: "{{ irods_env_host if irods_env_host else inventory_hostname }}"
+
+_irods_env_log_level: "{{ irods_env_log_level }}"
+
+_irods_env_match_hash_policy: "{{ irods_env_match_hash_policy if irods_env_match_hash_policy else
+                                  'compatible'                if irods_env_for_server else
+                                  None }}"
+
+_irods_env_plugins_home: "{{ irods_env_plugins_home }}"
+
+_irods_env_port: "{{ irods_env_port if irods_env_port else 1247 }}"
+
+_irods_env_ssl_ca_certificate_file: "{{ irods_env_ssl_ca_certificate_file }}"
+
+_irods_env_ssl_ca_certificate_path: "{{ irods_env_ssl_ca_certificate_path }}"
+
+_irods_env_ssl_certificate_chain_file: "{{ irods_env_ssl_certificate_chain_file }}"
+
+_irods_env_ssl_certificate_key_file: "{{ irods_env_ssl_certificate_key_file }}"
+
+_irods_env_ssl_dh_params_file: "{{ irods_env_ssl_dh_params_file }}"
+
+_irods_env_ssl_verify_server: "{{ irods_env_ssl_verify_server }}"
+
+_irods_env_xmsg_host: "{{ irods_env_xmsg_host }}"
+
+_irods_env_xmsg_port: "{{ irods_env_xmsg_port }}"
