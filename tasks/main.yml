@@ -18,7 +18,7 @@
       - 'not _irods_env_control_plane_port
          or (_irods_env_control_plane_port | int >= 1
              and _irods_env_control_plane_port | int <= 65535
-             and _irods_env_control_plant_port != _irods_env_port)'
+             and _irods_env_control_plane_port != _irods_env_port)'
       - not _irods_env_control_plane_key or _irods_env_control_plane_key | length == 32
       - not _irods_env_cwd or _irods_env_cwd | match('^/..*')
       - not _irods_env_default_hash_scheme or _irods_env_default_hash_scheme in ['MD5', 'SHA256']
@@ -38,8 +38,8 @@
          or (_irods_env_xmsg_port | int >= 1
              and _irods_env_xmsg_port | int <= 65535
              and _irods_env_xmsg_port != _irods_env_port
-             and (not _irods_env_control_plant_port
-                  or _irods_env_xmsg_port != _irods_env_control_plant_port))'
+             and (not _irods_env_control_plane_port
+                  or _irods_env_xmsg_port != _irods_env_control_plane_port))'
   ignore_errors: true
 
 - name: ensure path to environment file exists
