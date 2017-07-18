@@ -40,9 +40,14 @@ _irods_env_client_server_policy: "{{
     'CS_NEG_REFUSE'                if irods_env_for_server else
     None }}"
 
-_irods_env_control_plane_key: "{{ irods_env_control_plane_key }}"
+_irods_env_control_plane_port: "{{ irods_env_control_plane_port if irods_env_control_plane_port else
+                                   1248                         if irods_env_for_server else
+                                   None }}"
 
-_irods_env_control_plane_port: "{{ irods_env_control_plane_port }}"
+_irods_env_control_plane_key: "{{
+    irods_env_control_plane_key        if irods_env_control_plane_key else
+    'TEMPORARY__32byte_ctrl_plane_key' if irods_env_for_server else
+    None }}"
 
 _irods_env_cwd: "{{ irods_env_cwd if irods_env_cwd else _irods_env_home }}"
 

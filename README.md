@@ -35,9 +35,9 @@ Variable                               | Default                                
 `irods_env_debug`                      |                                                  |                                                 | desired verbosity of the debug logging level
 `irods_env_default_hash_scheme`        |                                                  | MD5, SHA256                                     | checksum scheme
 `irods_env_default_resource`           |                                                  |                                                 | the name of the resource used for iRODS operations if one is not specified
-`irods_env_encryption_algorithm`       |                                                  |                                                 | EVP-supplied encryption algorithm for parallel transfer
+`irods_env_encryption_algorithm`       |                                                  |                                                 | EVP-supplied encryption algorithm for parallel transfer and control plane
 `irods_env_encryption_key_size`        |                                                  |                                                 | key size for parallel transport encryption
-`irods_env_encryption_num_hash_rounds` |                                                  |                                                 | number of hash rounds for parallel transfer encryption
+`irods_env_encryption_num_hash_rounds` |                                                  |                                                 | number of hash rounds for parallel transfer and control plane encryption
 `irods_env_encryption_salt_size`       |                                                  |                                                 | salt size for parallel transfer encryption
 `irods_env_gsi_server_dn`              |                                                  |                                                 | the distinguished name of the GSI server
 `irods_env_home`                       |                                                  |                                                 | the home collection
@@ -66,8 +66,8 @@ Variable                               | Server Default
 `irods_env_sys_user_name`              | irods
 `irods_env_client_server_negotiation`  | request_server_negotiation
 `irods_env_client_server_policy`       | CS_NEG_DONT_CARE
-`irods_env_control_plane_port`         | 1248
 `irods_env_control_plane_key`          | TEMPORARY__32byte_ctrl_plane_key
+`irods_env_control_plane_port`         | 1248
 `irods_env_default_hash_scheme`        | SHA256
 `irods_env_default_resource`           | demoResc
 `irods_env_encryption_algorithm`       | AES-256-CBC
