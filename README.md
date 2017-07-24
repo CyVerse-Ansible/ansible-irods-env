@@ -3,6 +3,8 @@ irods-env
 [![Build Status](https://travis-ci.org/CyVerse-Ansible/ansible-irods-env.svg?branch=master)](https://travis-ci.org/CyVerse-Ansible/ansible-irods-env)
 [![Ansible Galaxy](https://img.shields.io/ansible/role/18189.svg)](https://galaxy.ansible.com/CyVerse-Ansible/irods-env/)
 
+__DEPRECATED__ Please use irods-server-cfg role to generate irods_environment.json file for server.
+
 This role creates an irods_environment.json file. It can create both the client form for use by iCommands, iRODS FUSE client, etc., as well as the server form used by the iRODS servers.
 
 It was originally created to generate environment files for iRODS 4.1.10, but it will likely work for any iRODS 4.1.x version.
