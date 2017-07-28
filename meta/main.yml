@@ -1,10 +1,12 @@
 galaxy_info:
   author: Tony Edgin
-  description: a role for generating iRODS environment files
+  description: >
+    A role for generating iRODS environment files. This role is deprecated. Please use
+    cyverse-ansible.irods-server-cfg (https://galaxy.ansible.com/CyVerse-Ansible/irods-server-cfg).
   company: CyVerse
   license: See license.md
   min_ansible_version: 2.1.1
-  
+
   platforms:
     - name: Ubuntu
       versions:
